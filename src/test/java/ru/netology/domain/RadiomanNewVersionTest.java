@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RadiomanNewVersionTest {
     @Test
     void shouldChangeNextMaxNumberStation() {
-        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(15, 15);
+        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(10, 10);
         radiomanNewVersion.changeNextNumberStation();
         assertEquals(0, radiomanNewVersion.getCurrentStation());
     }
 
     @Test
     void shouldChangeNextNumberStation() {
-        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(5, 15);
+        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(5, 10);
         radiomanNewVersion.changeNextNumberStation();
         assertEquals(6, radiomanNewVersion.getCurrentStation());
     }
@@ -22,14 +22,14 @@ public class RadiomanNewVersionTest {
 
     @Test
     void shouldChangePrevMinNumberStationB() {
-        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(0, 15);
+        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(0, 10);
         radiomanNewVersion.changePrevNumberStation();
-        assertEquals(15, radiomanNewVersion.getCurrentStation());
+        assertEquals(10, radiomanNewVersion.getCurrentStation());
     }
 
     @Test
     void shouldChangePrevNumberStation() {
-        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(5, 15);
+        RadiomanNewVersion radiomanNewVersion = new RadiomanNewVersion(5, 10);
         radiomanNewVersion.changePrevNumberStation();
         assertEquals(4, radiomanNewVersion.getCurrentStation());
     }
