@@ -1,12 +1,24 @@
 package ru.netology.domain;
 
 public class RadiomanNewVersion {
-    private int currentStation;
-    private int maxStation;
-    private int minStation;
-    private int currentVolume;
-    private int maxVolume;
-    private int minVolume;
+    private int currentStation = 5;
+    private int maxStation = 10;
+    private int minStation = 0;
+    private int currentVolume = 15;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+
+    public RadiomanNewVersion() {
+    }
+
+    public RadiomanNewVersion(int currentStation, int maxStation) {
+        this.currentStation = currentStation;
+        this.maxStation = maxStation;
+    }
+
+    public RadiomanNewVersion(int maxStation) {
+        this.maxStation = maxStation;
+    }
 
     public int getMaxStation() {
         return maxStation;
@@ -23,48 +35,48 @@ public class RadiomanNewVersion {
     public void setMinStation(int minStation) {
         this.minStation = minStation;
     }
-    public int getCurrentStation () {
+
+    public int getCurrentStation() {
         return currentStation;
     }
+
     public void setCurrentStation(int currentStation) {
-        if (currentStation > maxStation) {
-            return;
-        }
-        if (currentStation < minStation) {
-            return;
-        }
         this.currentStation = currentStation;
     }
-    public void nextNumberStation() {
+
+    public void changeNextNumberStation() {
         if (currentStation == maxStation) {
-            this.currentStation = minStation;
+            currentStation = minStation;
         } else {
-            currentStation++;
-        }}
-
-
-    public void prevNumberStation () {
-        if (currentStation == minStation) {
-            this.currentStation = maxStation;
-        } else {
-            currentStation--;
+            currentStation ++;
         }
     }
 
-    public int getMaxVolume() {
-        return maxVolume;
+    public void changePrevNumberStation() {
+        if (currentStation == minStation) {
+            currentStation = maxStation;
+        } else {
+            currentStation --;
+        }
     }
 
-    public void setMaxVolume(int maxVolume) {
+    public RadiomanNewVersion(int currentVolume, int maxVolume, int minVolume) {
+        this.currentVolume = currentVolume;
         this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
         this.minVolume = minVolume;
+
+    }
+
+    public void increaseVolume() {
+        if (currentVolume != maxVolume) {
+            currentVolume ++;
+        }
+    }
+
+    public void decreaseVolume() {
+        if (currentVolume != minVolume) {
+            currentVolume --;
+        }
     }
 
     public int getCurrentVolume() {
@@ -72,24 +84,7 @@ public class RadiomanNewVersion {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > maxVolume) {
-            return;
-        }
-        if (currentVolume < minVolume) {
-            return;
-        }
         this.currentVolume = currentVolume;
     }
-
-    public void increaseVolume() {
-        if (currentVolume != maxVolume) {
-            currentVolume++;
-        }
-    }
-
-    public void decreaseVolume() {
-        if (currentVolume != minVolume) {
-            currentVolume--;
-        }
-    }
 }
+
